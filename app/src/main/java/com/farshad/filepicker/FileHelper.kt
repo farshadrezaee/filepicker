@@ -190,6 +190,11 @@ object FileHelper {
             result = cursor.getString(columnIndex)
             cursor.close()
         }
+
+        if (result.isEmpty() && contentUri.path != null) {
+            result = contentUri.path!!
+        }
+
         return result
     }
 
